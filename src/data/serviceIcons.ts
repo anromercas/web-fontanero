@@ -1,4 +1,6 @@
-export const serviceIcons: Record<string, string> = {
+import type { ServiceSlug } from './business';
+
+export const serviceIcons: Record<ServiceSlug, string> = {
   'instalacion-termos':
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="3" width="10" height="18" rx="3"/><path d="M12 8v5l3 2"/></svg>',
   'reparacion-termos':

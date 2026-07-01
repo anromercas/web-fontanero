@@ -4,8 +4,16 @@ export interface Review {
   text: string;
 }
 
+export type ServiceSlug =
+  | 'instalacion-termos'
+  | 'reparacion-termos'
+  | 'sustitucion-urgente'
+  | 'reparacion-fugas'
+  | 'griferia'
+  | 'fontaneria-general';
+
 export interface Service {
-  slug: string;
+  slug: ServiceSlug;
   title: string;
   description: string;
 }
