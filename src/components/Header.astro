@@ -1,0 +1,63 @@
+---
+import { business } from '../data/business';
+
+const navLinks = [
+  { href: '/', label: 'Inicio' },
+  { href: '/servicios', label: 'Servicios' },
+  { href: '/sobre-nosotros', label: 'Sobre nosotros' },
+  { href: '/opiniones', label: 'Opiniones' },
+  { href: '/contacto', label: 'Contacto' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+<header class="sticky top-0 z-40 bg-petroleo text-white shadow-md">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+    <a href="/" class="font-heading text-lg font-bold sm:text-xl">
+      Leonardo Ruiz <span class="hidden font-normal text-ambar sm:inline">· Fontanero Sevilla</span>
+    </a>
+
+    <nav class="hidden gap-6 font-medium md:flex">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'transition-colors hover:text-ambar',
+            currentPath === link.href && 'text-ambar',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href={business.telephoneHref}
+      class="hidden items-center gap-2 rounded-full bg-ambar px-4 py-2 font-semibold text-white transition-colors hover:bg-ambar-dark md:inline-flex"
+    >
+      Llamar ahora
+    </a>
+  </div>
+
+  <nav class="flex justify-around gap-1 border-t border-white/10 px-2 py-2 text-sm font-medium md:hidden">
+    {navLinks.map((link) => (
+      <a
+        href={link.href}
+        class:list={[
+          'rounded-md px-2 py-1 transition-colors',
+          currentPath === link.href ? 'bg-white/10 text-ambar' : 'hover:text-ambar',
+        ]}
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+</header>
+
+<a
+  href={business.telephoneHref}
+  class="fixed inset-x-4 bottom-4 z-50 flex items-center justify-center gap-2 rounded-full bg-ambar px-6 py-3 text-center font-heading font-semibold text-white shadow-lg sm:hidden"
+  aria-label={`Llamar a ${business.name}`}
+>
+  Llamar ahora · {business.telephone}
+</a>
