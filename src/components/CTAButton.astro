@@ -1,0 +1,18 @@
+---
+import { business } from '../data/business';
+
+interface Props {
+  variant?: 'tel' | 'link';
+  href?: string;
+  label: string;
+}
+
+const { variant = 'tel', href, label } = Astro.props;
+const finalHref = variant === 'tel' ? business.telephoneHref : href ?? '#';
+---
+<a
+  href={finalHref}
+  class="inline-flex items-center justify-center gap-2 rounded-full bg-ambar px-6 py-3 font-heading font-semibold text-white shadow-sm transition-colors hover:bg-ambar-dark"
+>
+  {label}
+</a>
