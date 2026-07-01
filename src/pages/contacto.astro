@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MapEmbed from '../components/MapEmbed.astro';
+import { business } from '../data/business';
+---
+<BaseLayout
+  title="Contacto | Fontanero Leonardo Ruiz en San Luis, Casco Antiguo, Sevilla"
+  description="Contacta con Leonardo Ruiz, fontanero en Sevilla especializado en termos eléctricos. Teléfono, horario, zona de servicio y formulario de contacto."
+  path="/contacto"
+>
+  <section class="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2">
+    <div>
+      <h1 class="font-heading text-3xl font-bold text-petroleo sm:text-4xl">Contacto</h1>
+      <p class="mt-4 text-stone-600">
+        ¿Necesitas un fontanero en Sevilla? Llama directamente o rellena el formulario y te responderé
+        lo antes posible.
+      </p>
+
+      <dl class="mt-8 space-y-4 text-stone-700">
+        <div>
+          <dt class="font-heading font-semibold text-petroleo">Teléfono</dt>
+          <dd><a href={business.telephoneHref} class="text-ambar hover:underline">{business.telephone}</a></dd>
+        </div>
+        <div>
+          <dt class="font-heading font-semibold text-petroleo">Dirección</dt>
+          <dd>{business.address.streetAddress}, {business.address.postalCode} {business.address.addressLocality}</dd>
+        </div>
+        <div>
+          <dt class="font-heading font-semibold text-petroleo">Horario</dt>
+          <dd>
+            <ul class="space-y-1">
+              {business.openingHoursDisplay.map((item) => (
+                <li>{item.label}: {item.hours}</li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+        <div>
+          <dt class="font-heading font-semibold text-petroleo">Zona de servicio</dt>
+          <dd>Sevilla capital y alrededores</dd>
+        </div>
+      </dl>
+
+      <form
+        name="contacto"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/gracias"
+        class="mt-10 space-y-4"
+      >
+        <input type="hidden" name="form-name" value="contacto" />
+        <p class="hidden">
+          <label>No rellenar si eres humano: <input name="bot-field" /></label>
+        </p>
+
+        <div>
+          <label for="nombre" class="block text-sm font-medium text-stone-700">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+            class="mt-1 w-full rounded-lg border border-stone-300 px-4 py-2 focus:border-petroleo focus:outline-none focus:ring-1 focus:ring-petroleo"
+          />
+        </div>
+
+        <div>
+          <label for="telefono" class="block text-sm font-medium text-stone-700">Teléfono</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            required
+            class="mt-1 w-full rounded-lg border border-stone-300 px-4 py-2 focus:border-petroleo focus:outline-none focus:ring-1 focus:ring-petroleo"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-stone-700">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="mt-1 w-full rounded-lg border border-stone-300 px-4 py-2 focus:border-petroleo focus:outline-none focus:ring-1 focus:ring-petroleo"
+          />
+        </div>
+
+        <div>
+          <label for="mensaje" class="block text-sm font-medium text-stone-700">Mensaje</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="4"
+            required
+            class="mt-1 w-full rounded-lg border border-stone-300 px-4 py-2 focus:border-petroleo focus:outline-none focus:ring-1 focus:ring-petroleo"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-ambar px-6 py-3 font-heading font-semibold text-white shadow-sm transition-colors hover:bg-ambar-dark"
+        >
+          Enviar mensaje
+        </button>
+      </form>
+    </div>
+
+    <div>
+      <MapEmbed className="h-full min-h-[400px]" />
+      <a
+        href={business.googleMapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-4 inline-block text-petroleo hover:underline"
+      >
+        Ver ficha en Google Maps
+      </a>
+    </div>
+  </section>
+</BaseLayout>
