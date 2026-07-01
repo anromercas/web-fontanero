@@ -1,0 +1,71 @@
+---
+import { business, reviews } from '../data/business';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+}
+
+const { title, description, path, image = '/images/og-default.jpg' } = Astro.props;
+const canonicalURL = new URL(path, Astro.site);
+const imageURL = new URL(image, Astro.site);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Plumber',
+  name: business.name,
+  image: imageURL.toString(),
+  telephone: business.telephoneE164,
+  priceRange: business.priceRange,
+  areaServed: business.areaServed,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: business.address.streetAddress,
+    addressLocality: business.address.addressLocality,
+    postalCode: business.address.postalCode,
+    addressRegion: business.address.addressRegion,
+    addressCountry: business.address.addressCountry,
+  },
+  url: Astro.site?.toString(),
+  openingHoursSpecification: business.openingHours.map((h) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: h.days,
+    opens: h.opens,
+    closes: h.closes,
+  })),
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: business.ratingValue,
+    reviewCount: business.reviewCount,
+  },
+  review: reviews.map((r) => ({
+    '@type': 'Review',
+    author: { '@type': 'Person', name: r.author },
+    reviewBody: r.text,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: '5',
+      bestRating: '5',
+    },
+  })),
+};
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageURL} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:locale" content="es_ES" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageURL} />
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
