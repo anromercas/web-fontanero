@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ReviewCard from '../components/ReviewCard.astro';
+import { business, reviews } from '../data/business';
+---
+<BaseLayout
+  title="Opiniones de clientes | Fontanero Leonardo Ruiz Sevilla"
+  description="Lee las opiniones reales de clientes de Leonardo Ruiz, fontanero en Sevilla especializado en termos eléctricos: 5,0★ sobre 45 reseñas en Google."
+  path="/opiniones"
+>
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <h1 class="font-heading text-3xl font-bold text-petroleo sm:text-4xl">Opiniones de clientes</h1>
+    <p class="mt-4 max-w-2xl text-stone-600">
+      La confianza se gana visita a visita. Estas son algunas de las reseñas reales que mis clientes
+      han dejado en Google, con una valoración media de {business.ratingValue} sobre {business.reviewCount}
+      opiniones. Si ya has trabajado conmigo, me ayudas mucho dejando tu reseña en la ficha de Google
+      del negocio.
+    </p>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      {reviews.map((review) => (
+        <ReviewCard author={review.author} timeAgo={review.timeAgo} text={review.text} />
+      ))}
+    </div>
+
+    <div class="mt-12 text-center">
+      <a
+        href={business.googleMapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 rounded-full bg-ambar px-6 py-3 font-heading font-semibold text-white shadow-sm transition-colors hover:bg-ambar-dark"
+      >
+        Dejar una reseña en Google
+      </a>
+    </div>
+  </section>
+</BaseLayout>
