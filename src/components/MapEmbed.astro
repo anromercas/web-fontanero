@@ -1,18 +1,26 @@
 ---
+import { business } from '../data/business';
+
 interface Props {
   className?: string;
 }
 
 const { className = '' } = Astro.props;
+
+const addressQuery = encodeURIComponent(
+  `${business.address.streetAddress}, ${business.address.postalCode} ${business.address.addressLocality}`
+);
+const mapSrc = `https://www.google.com/maps?q=${addressQuery}&output=embed`;
+const mapTitle = `Ubicación de ${business.name} en ${business.address.streetAddress}, ${business.address.addressLocality}`;
 ---
 <iframe
-  src="https://www.google.com/maps?q=San+Luis,+Casco+Antiguo,+41003+Sevilla&output=embed"
+  src={mapSrc}
   width="100%"
   height="400"
   style="border:0;"
   allowfullscreen
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade"
-  title="Ubicación de Fontanero Termos Eléctricos Leonardo Ruiz en San Luis, Casco Antiguo, Sevilla"
+  title={mapTitle}
   class={`rounded-2xl ${className}`}
 ></iframe>
