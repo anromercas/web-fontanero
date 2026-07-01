@@ -1,17 +1,98 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ReviewCard from '../components/ReviewCard.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { business, reviews, services } from '../data/business';
+import { serviceIcons } from '../data/serviceIcons';
+import heroImage from '../assets/images/hero-instalacion-termo.jpg';
 
+const featuredServices = services.filter((s) =>
+  ['instalacion-termos', 'sustitucion-urgente', 'reparacion-fugas'].includes(s.slug)
+);
 ---
+<BaseLayout
+  title="Fontanero en Sevilla especialista en termos eléctricos | Leonardo Ruiz"
+  description="Fontanero en Sevilla especializado en instalación y reparación de termos eléctricos. Respuesta rápida en Casco Antiguo y toda Sevilla. 5,0★ en 45 reseñas de Google."
+  path="/"
+>
+  <Hero
+    title="Fontanero en Sevilla especialista en termos eléctricos"
+    subtitle="Instalación y reparación urgente de termos eléctricos en Casco Antiguo y toda Sevilla. Leonardo Ruiz responde rápido, sin sorpresas y con trato cercano — 5,0★ en 45 reseñas de Google."
+    image={heroImage}
+    imageAlt="Instalación de termo eléctrico en un cuarto de baño en Sevilla"
+  />
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="flex items-center justify-center gap-2 rounded-2xl bg-white p-6 text-center shadow-sm">
+      <div class="flex text-ambar" aria-hidden="true">
+        {Array.from({ length: 5 }).map(() => (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
+            <path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.86L12 17.77l-6.18 3.23L7 14.14 2 9.27l7.1-1.01L12 2z" />
+          </svg>
+        ))}
+      </div>
+      <p class="font-heading text-lg font-semibold text-petroleo">
+        {business.ratingValue} sobre 5 · {business.reviewCount} reseñas en Google
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
+    <h2 class="text-center font-heading text-2xl font-bold text-petroleo sm:text-3xl">
+      Servicios destacados
+    </h2>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {featuredServices.map((service) => (
+        <ServiceCard title={service.title} description={service.description}>
+          <Fragment slot="icon" set:html={serviceIcons[service.slug]} />
+        </ServiceCard>
+      ))}
+    </div>
+    <div class="mt-8 text-center">
+      <CTAButton variant="link" href="/servicios" label="Ver todos los servicios" />
+    </div>
+  </section>
+
+  <section class="bg-white py-16">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 class="text-center font-heading text-2xl font-bold text-petroleo sm:text-3xl">
+        Lo que dicen mis clientes
+      </h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        {reviews.map((review) => (
+          <ReviewCard author={review.author} timeAgo={review.timeAgo} text={review.text} />
+        ))}
+      </div>
+      <div class="mt-8 text-center">
+        <CTAButton variant="link" href="/opiniones" label="Ver todas las opiniones" />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <div class="grid gap-8 rounded-2xl bg-petroleo p-8 text-white sm:p-12 md:grid-cols-2">
+      <div>
+        <h2 class="font-heading text-2xl font-bold sm:text-3xl">Zona de cobertura y horario</h2>
+        <p class="mt-4 text-white/90">
+          Atiendo Sevilla capital y alrededores, con especial presencia en el Casco Antiguo. Disponible en:
+        </p>
+        <ul class="mt-4 space-y-1 text-white/90">
+          {business.openingHoursDisplay.map((item) => (
+            <li>{item.label}: {item.hours}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="flex flex-col items-start justify-center gap-4">
+        <p class="text-white/90">
+          ¿Necesitas un fontanero de confianza en Sevilla? Llama ahora o pide presupuesto sin compromiso.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <CTAButton label="Llamar ahora" />
+          <CTAButton variant="link" href="/contacto" label="Ir a contacto" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
