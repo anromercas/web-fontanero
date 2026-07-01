@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { services } from '../data/business';
+import { serviceIcons } from '../data/serviceIcons';
+---
+<BaseLayout
+  title="Servicios de fontanería y termos eléctricos en Sevilla | Leonardo Ruiz"
+  description="Instalación, reparación y sustitución urgente de termos eléctricos en Sevilla, reparación de fugas, grifería y fontanería general. Presupuesto sin compromiso."
+  path="/servicios"
+>
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <h1 class="font-heading text-3xl font-bold text-petroleo sm:text-4xl">
+      Servicios de fontanería en Sevilla
+    </h1>
+    <p class="mt-4 max-w-2xl text-stone-600">
+      Especializado en termos eléctricos, pero resuelvo cualquier avería de fontanería en tu vivienda
+      en Sevilla y alrededores. Estos son los servicios que ofrezco:
+    </p>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {services.map((service) => (
+        <ServiceCard title={service.title} description={service.description}>
+          <Fragment slot="icon" set:html={serviceIcons[service.slug]} />
+        </ServiceCard>
+      ))}
+    </div>
+
+    <div class="mt-12 text-center">
+      <CTAButton label="Llamar ahora para pedir presupuesto" />
+    </div>
+  </section>
+</BaseLayout>
