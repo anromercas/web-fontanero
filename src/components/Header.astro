@@ -10,6 +10,7 @@ const navLinks = [
 ];
 
 const currentPath = Astro.url.pathname;
+const isActive = (href: string) => currentPath === href;
 ---
 <header class="sticky top-0 z-40 bg-petroleo text-white shadow-md">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
@@ -17,13 +18,14 @@ const currentPath = Astro.url.pathname;
       Leonardo Ruiz <span class="hidden font-normal text-ambar sm:inline">· Fontanero Sevilla</span>
     </a>
 
-    <nav class="hidden gap-6 font-medium md:flex">
+    <nav class="hidden gap-6 font-medium md:flex" aria-label="Navegación principal">
       {navLinks.map((link) => (
         <a
           href={link.href}
+          aria-current={isActive(link.href) ? 'page' : undefined}
           class:list={[
             'transition-colors hover:text-ambar',
-            currentPath === link.href && 'text-ambar',
+            isActive(link.href) && 'text-ambar',
           ]}
         >
           {link.label}
@@ -39,13 +41,14 @@ const currentPath = Astro.url.pathname;
     </a>
   </div>
 
-  <nav class="flex justify-around gap-1 border-t border-white/10 px-2 py-2 text-sm font-medium md:hidden">
+  <nav class="flex justify-around gap-1 border-t border-white/10 px-2 py-2 text-sm font-medium md:hidden" aria-label="Navegación móvil">
     {navLinks.map((link) => (
       <a
         href={link.href}
+        aria-current={isActive(link.href) ? 'page' : undefined}
         class:list={[
           'rounded-md px-2 py-1 transition-colors',
-          currentPath === link.href ? 'bg-white/10 text-ambar' : 'hover:text-ambar',
+          isActive(link.href) ? 'bg-white/10 text-ambar' : 'hover:text-ambar',
         ]}
       >
         {link.label}
