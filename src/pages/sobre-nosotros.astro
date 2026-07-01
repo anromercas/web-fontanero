@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { Image } from 'astro:assets';
+import aboutImage from '../assets/images/sobre-nosotros-fontanero.jpg';
+---
+<BaseLayout
+  title="Sobre Leonardo Ruiz, fontanero en Sevilla | Termos Eléctricos"
+  description="Conoce a Leonardo Ruiz, fontanero autónomo en Sevilla especializado en termos eléctricos: rapidez, seriedad y trato cercano en cada visita."
+  path="/sobre-nosotros"
+>
+  <section class="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 md:items-center">
+    <div>
+      <h1 class="font-heading text-3xl font-bold text-petroleo sm:text-4xl">
+        Sobre Leonardo Ruiz
+      </h1>
+      <div class="mt-6 space-y-4 text-stone-700">
+        <p>
+          Soy Leonardo Ruiz, fontanero autónomo en Sevilla especializado en termos eléctricos. Llevo
+          años ayudando a vecinos del Casco Antiguo y de toda la ciudad a resolver desde una avería
+          urgente hasta la instalación completa de un termo nuevo, y lo hago yo mismo, de principio a
+          fin: no hay intermediarios ni cuadrillas distintas cada vez que llamas.
+        </p>
+        <p>
+          Sé que un termo estropeado o una fuga de agua no esperan, así que mi forma de trabajar se
+          basa en responder rápido y dar la cara desde el primer momento. Muchos clientes destacan
+          precisamente eso en sus reseñas: que en menos de 24-48 horas desde la primera llamada ya
+          tenían el problema resuelto, incluso averías que otros profesionales no habían conseguido
+          solucionar en semanas.
+        </p>
+        <p>
+          Trabajo con seriedad y sin tecnicismos innecesarios: te explico qué le pasa a tu instalación,
+          qué opciones tienes y cuál te conviene, sin liarte. Cuido cada instalación como si fuera la
+          de mi propia casa, dejando el trabajo limpio y probado antes de irme.
+        </p>
+        <p>
+          Si buscas un fontanero de confianza en Sevilla que conozca bien los termos eléctricos y te
+          trate como a un vecino más, estoy a un teléfono de distancia.
+        </p>
+      </div>
+      <div class="mt-8">
+        <CTAButton label="Llamar a Leonardo ahora" />
+      </div>
+    </div>
+    <Image
+      src={aboutImage}
+      alt="Fontanero trabajando en la instalación de fontanería de una vivienda en Sevilla"
+      loading="lazy"
+      width={560}
+      height={640}
+      class="w-full rounded-2xl object-cover shadow-lg"
+    />
+  </section>
+</BaseLayout>
