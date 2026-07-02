@@ -32,9 +32,6 @@ valores directamente en componentes o páginas.
 ## Pendiente / a confirmar con el cliente
 - Rango de precios (no disponible actualmente, se usa `priceRange: "$$"` genérico).
 - Redes sociales (no disponibles actualmente).
-- Enlace directo real a la ficha de Google Maps (se usó una URL de búsqueda
-  provisional en `business.ts` > `googleMapsUrl`, sustituir en cuanto el
-  cliente la facilite).
 - NIF/CIF del titular para el Aviso Legal (`src/pages/aviso-legal.astro`),
   actualmente marcado como "pendiente de facilitar".
 - Dominio real de Netlify o dominio propio: actualizar `site` en

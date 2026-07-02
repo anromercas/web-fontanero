@@ -36,8 +36,7 @@ export const business = {
   priceRange: '$$',
   ratingValue: '5.0',
   reviewCount: '45',
-  googleMapsUrl:
-    'https://www.google.com/maps/search/?api=1&query=Fontanero+Termos+Electricos+Leonardo+Ruiz+San+Luis+Casco+Antiguo+Sevilla',
+  googleMapsUrl: 'https://maps.app.goo.gl/cbLrScE6Q58F2vUg7',
   openingHours: [
     { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '09:00', closes: '20:00' },
     { days: ['Friday'], opens: '09:00', closes: '14:00' },
