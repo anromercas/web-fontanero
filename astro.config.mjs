@@ -10,5 +10,10 @@ export default defineConfig({
   // en cuanto el cliente conecte el repo y lo confirme. Ver CLAUDE.md > Pendiente.
   site: 'https://fontanero-leonardo-ruiz-sevilla.netlify.app',
   trailingSlash: 'never',
-  integrations: [tailwind(), sitemap()]
+  integrations: [
+    tailwind(),
+    sitemap({
+      filter: (page) => !page.endsWith('/gracias'),
+    }),
+  ]
 });
