@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+---
+<BaseLayout
+  title="Gracias por contactar | Fontanero Leonardo Ruiz Sevilla"
+  description="Hemos recibido tu mensaje. Leonardo Ruiz, fontanero en Sevilla, te responderá lo antes posible."
+  path="/gracias"
+>
+  <section class="mx-auto max-w-2xl px-4 py-24 text-center sm:px-6">
+    <h1 class="font-heading text-3xl font-bold text-petroleo sm:text-4xl">¡Gracias por tu mensaje!</h1>
+    <p class="mt-4 text-stone-600">
+      He recibido tu consulta y te responderé lo antes posible. Si tu avería es urgente, llámame
+      directamente y te atiendo al momento.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <CTAButton label="Llamar ahora" />
+      <CTAButton variant="link" href="/" label="Volver al inicio" />
+    </div>
+  </section>
+</BaseLayout>
