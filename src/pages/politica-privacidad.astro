@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { business } from '../data/business';
+---
+<BaseLayout
+  title="Política de Privacidad | Fontanero Leonardo Ruiz Sevilla"
+  description="Política de privacidad y protección de datos (RGPD) del sitio web de Fontanero Termos Eléctricos Leonardo Ruiz en Sevilla."
+  path="/politica-privacidad"
+>
+  <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <h1 class="font-heading text-3xl font-bold text-petroleo sm:text-4xl">Política de Privacidad</h1>
+
+    <div class="mt-8 space-y-6 text-stone-700">
+      <div>
+        <h2 class="font-heading text-xl font-semibold text-petroleo">1. Responsable del tratamiento</h2>
+        <p class="mt-2">
+          El responsable del tratamiento de los datos personales recabados a través de este sitio web
+          es <strong>{business.name}</strong>, con domicilio en {business.address.streetAddress},
+          {business.address.postalCode} {business.address.addressLocality}, y teléfono de contacto
+          {business.telephone}.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-xl font-semibold text-petroleo">2. Finalidad del tratamiento</h2>
+        <p class="mt-2">
+          Los datos que facilitas a través del formulario de contacto (nombre, teléfono, email y
+          mensaje) se utilizan únicamente para responder a tu consulta o solicitud de presupuesto sobre
+          servicios de fontanería. No se utilizan para envío de comunicaciones comerciales salvo que lo
+          solicites expresamente.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-xl font-semibold text-petroleo">3. Legitimación</h2>
+        <p class="mt-2">
+          La base legal para el tratamiento de tus datos es tu consentimiento expreso, otorgado al
+          rellenar y enviar voluntariamente el formulario de contacto.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-xl font-semibold text-petroleo">4. Destinatarios y encargados de tratamiento</h2>
+        <p class="mt-2">
+          El formulario de contacto se gestiona mediante el servicio Netlify Forms, proporcionado por
+          Netlify, Inc., que actúa como encargado de tratamiento y almacena los envíos del formulario
+          en sus servidores conforme a su propia política de privacidad. No se cede tu información a
+          terceros para fines distintos a la gestión de tu consulta.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-xl font-semibold text-petroleo">5. Conservación de los datos</h2>
+        <p class="mt-2">
+          Tus datos se conservarán únicamente durante el tiempo necesario para atender tu consulta y,
+          en su caso, formalizar y prestar el servicio solicitado, salvo obligación legal de
+          conservación superior.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-heading text-xl font-semibold text-petroleo">6. Derechos de las personas interesadas</h2>
+        <p class="mt-2">
+          Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación del
+          tratamiento y portabilidad de tus datos contactando directamente en el teléfono
+          {business.telephone}, indicando el derecho que deseas ejercer.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
