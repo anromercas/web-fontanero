@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { business } from '../data/business';
 ---
 <BaseLayout
-  title="Aviso Legal | Fontanero Leonardo Ruiz Sevilla"
-  description="Aviso legal del sitio web de Fontanero Termos Eléctricos Leonardo Ruiz, en cumplimiento de la LSSI-CE."
+  title="Aviso Legal | Fontanero Diego Mora Sevilla"
+  description="Aviso legal del sitio web de Inst. Fontaneria Diego Mora, en cumplimiento de la LSSI-CE."
   path="/aviso-legal"
 >
   <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
@@ -17,8 +17,9 @@ import { business } from '../data/business';
           En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la
           Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los siguientes
           datos: el titular de este sitio web es <strong>{business.name}</strong>, actividad económica
-          de {business.legalActivity}, con domicilio en {business.address.streetAddress}, {business.address.postalCode} {business.address.addressLocality}, España. NIF/CIF: pendiente
-          de facilitar por el titular del negocio. Teléfono de contacto: {business.telephone}.
+          de {business.legalActivity}, con ámbito de actuación en {business.areaServed}, España.
+          NIF/CIF y domicilio: pendientes de facilitar por el titular del negocio. Teléfono de
+          contacto: {business.telephone}.
         </p>
       </div>
 

@@ -5,12 +5,12 @@ export interface Review {
 }
 
 export type ServiceSlug =
-  | 'instalacion-termos'
-  | 'reparacion-termos'
-  | 'sustitucion-urgente'
+  | 'instalaciones-fontaneria'
+  | 'reparaciones-urgentes'
   | 'reparacion-fugas'
   | 'griferia'
-  | 'fontaneria-general';
+  | 'termos-calentadores'
+  | 'atascos-desagues';
 
 export interface Service {
   slug: ServiceSlug;
@@ -19,77 +19,76 @@ export interface Service {
 }
 
 export const business = {
-  name: 'Fontanero Termos Eléctricos Leonardo Ruiz',
+  // Nombre exacto de la ficha de Google Maps (consistencia NAP para SEO local).
+  name: 'Inst. Fontaneria Diego Mora',
   legalActivity:
-    'Fontanero especializado en instalación y reparación de termos eléctricos',
-  telephone: '651 91 25 07',
-  telephoneE164: '+34651912507',
-  telephoneHref: 'tel:+34651912507',
+    'Fontanero autónomo especializado en instalaciones y reparaciones de fontanería',
+  telephone: '685 24 96 08',
+  telephoneE164: '+34685249608',
+  telephoneHref: 'tel:+34685249608',
+  // Negocio de área de servicio: la ficha de Google Maps no muestra dirección
+  // pública. TODO pendiente: confirmar localidad base con el cliente
+  // (ver CLAUDE.md > Pendiente).
   address: {
-    streetAddress: 'San Luis, Casco Antiguo',
-    postalCode: '41003',
     addressLocality: 'Sevilla',
     addressRegion: 'Sevilla',
     addressCountry: 'ES',
   },
-  areaServed: 'Sevilla',
+  areaServed: 'Sevilla y provincia',
   priceRange: '$$',
   ratingValue: '5.0',
-  reviewCount: '45',
-  googleMapsUrl: 'https://maps.app.goo.gl/cbLrScE6Q58F2vUg7',
+  reviewCount: '30',
+  googleMapsUrl: 'https://maps.app.goo.gl/jmG5b1vB3vvroDNz5',
   openingHours: [
-    { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '09:00', closes: '20:00' },
-    { days: ['Friday'], opens: '09:00', closes: '14:00' },
+    {
+      days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '15:00',
+    },
   ],
   openingHoursDisplay: [
-    { label: 'Lunes a jueves', hours: '9:00–20:00' },
-    { label: 'Viernes', hours: '9:00–14:00' },
+    { label: 'Lunes a viernes', hours: '8:00–15:00' },
     { label: 'Sábado y domingo', hours: 'Cerrado' },
   ],
 } as const;
 
+// Reseñas reales extraídas de la ficha de Google Maps del negocio.
 export const reviews: Review[] = [
   {
-    author: 'cara biglang-awa',
-    timeAgo: 'hace 1 mes',
-    text: 'Instalación rápida y profesional. El grifo quedó perfecto y funcionando sin problemas. Muy recomendable.',
+    author: 'Lucas Mora Cabiedes',
+    timeAgo: 'hace 4 meses',
+    text: 'Cuando detrás de un profesional hay años de experiencia, formalidad y profesionalidad, el resultado es el que todos buscamos cuando tenemos un problema. Muy recomendable y sin duda nuestro fontanero de referencia.',
   },
   {
-    author: 'Jesús Domínguez',
-    timeAgo: 'hace 3 meses',
-    text: 'Solo tengo palabras de agradecimiento a la labor de Leonardo. Rapidez, profesionalidad, responsabilidad y empatía. Solo un día después de contactar con él, tenía instalado el nuevo termo.',
+    author: 'Javier Oejo Tendero',
+    timeAgo: 'hace 7 meses',
+    text: 'Llamé para pedirle cita por un problema con la lavadora. Me dijo que no tenía disponibilidad, pero me pidió unas fotos y en cuestión de 5 minutos me dijo el problema y la solución, sin pedir nada a cambio. Agradecido y desde luego le tengo como referencia para cualquier tipo de trabajo. Muchas gracias Diego por la ayuda y la solución.',
   },
   {
-    author: 'Ana Mª Gavira Muñoz',
+    author: 'Pedro Jose Nuñez Martin',
     timeAgo: 'hace 9 meses',
-    text: 'La experiencia con Leo ha sido maravillosa. Resolutivo, rápido, cuidadoso, trato inmejorable. Me ha solucionado en menos de una semana lo que otros no habían podido solucionar en dos meses.',
+    text: 'Buen servicio, buena atención, muy profesional. Todo perfecto. Nos apuntamos el teléfono por si fuera necesaria su intervención más adelante.',
   },
 ];
 
 export const services: Service[] = [
   {
-    slug: 'instalacion-termos',
-    title: 'Instalación de termos eléctricos',
+    slug: 'instalaciones-fontaneria',
+    title: 'Instalaciones de fontanería',
     description:
-      'Instalo termos eléctricos de todas las marcas y capacidades, adaptados al consumo real de tu vivienda en Sevilla. Antes de instalar, valoro el espacio, la instalación eléctrica existente y tus necesidades de agua caliente para recomendarte el equipo adecuado, ni más grande ni más pequeño de lo que necesitas. La instalación incluye conexiones de agua y electricidad, purgado y prueba de funcionamiento antes de darla por terminada, para que tengas agua caliente sin sorpresas desde el primer día.',
+      'Realizo instalaciones de fontanería completas y parciales en viviendas de Sevilla y provincia: sustitución de tuberías, nuevas tomas de agua, instalación de sanitarios y conexión de electrodomésticos como lavadoras y lavavajillas. Estudio cada instalación antes de empezar y la dejo probada y funcionando antes de dar el trabajo por terminado, con materiales de calidad y un acabado limpio.',
   },
   {
-    slug: 'reparacion-termos',
-    title: 'Reparación y mantenimiento de termos eléctricos',
+    slug: 'reparaciones-urgentes',
+    title: 'Reparaciones y averías del hogar',
     description:
-      'Si tu termo eléctrico no calienta, gotea o hace ruidos extraños, reviso la resistencia, el termostato, el ánodo y las conexiones para encontrar la avería real, no solo el síntoma. Muchas averías se solucionan con una reparación sencilla sin necesidad de cambiar el equipo completo. También ofrezco mantenimiento preventivo periódico para alargar la vida útil de tu termo y evitar averías justo cuando más lo necesitas, típicamente en pleno invierno.',
-  },
-  {
-    slug: 'sustitucion-urgente',
-    title: 'Sustitución urgente de termos averiados',
-    description:
-      'Un termo que deja de funcionar es de las averías que menos pueden esperar, por eso priorizo estas visitas y suelo tener disponibilidad para instalaciones urgentes en Sevilla en cuestión de días, a veces el mismo día siguiente a tu llamada. Retiro el termo averiado, instalo el nuevo equipo y dejo la zona probada y funcionando, minimizando el tiempo que tu casa está sin agua caliente.',
+      'Una avería de fontanería no espera, por eso priorizo las visitas urgentes y, siempre que puedo, te adelanto el diagnóstico por teléfono o con unas fotos para que sepas qué le pasa a tu instalación antes incluso de la visita. Reparo cisternas, válvulas, latiguillos, llaves de paso y cualquier avería del día a día, buscando siempre la solución que resuelve el origen del problema, no solo el síntoma.',
   },
   {
     slug: 'reparacion-fugas',
     title: 'Reparación de fugas de agua',
     description:
-      'Localizo y reparo fugas de agua en tuberías, juntas y conexiones antes de que se conviertan en un problema mayor para tu vivienda: humedades, manchas en el techo o facturas de agua disparadas. Trabajo tanto en fugas visibles como en fugas más difíciles de localizar, buscando siempre solucionar el origen y no solo el síntoma. Servicio disponible en Sevilla capital y alrededores.',
+      'Localizo y reparo fugas de agua en tuberías, juntas y conexiones antes de que se conviertan en un problema mayor para tu vivienda: humedades, manchas en el techo o facturas de agua disparadas. Trabajo tanto en fugas visibles como en fugas más difíciles de localizar, buscando siempre solucionar el origen y no solo el síntoma. Servicio disponible en Sevilla y provincia.',
   },
   {
     slug: 'griferia',
@@ -98,9 +97,15 @@ export const services: Service[] = [
       'Instalo y reparo grifos de cocina, baño y lavadero, desde una simple sustitución de grifo hasta la resolución de goteos, presión baja o piezas desgastadas. Trabajo con cuidado para dejar la zona limpia y el grifo funcionando de forma silenciosa y sin fugas, comprobando la instalación antes de finalizar el servicio.',
   },
   {
-    slug: 'fontaneria-general',
-    title: 'Fontanería general para vivienda',
+    slug: 'termos-calentadores',
+    title: 'Termos eléctricos y calentadores',
     description:
-      'Además de termos eléctricos, atiendo revisiones y pequeñas averías de fontanería en el día a día de tu vivienda en Sevilla: atascos, cisternas, válvulas, pequeñas reparaciones de tuberías y todo lo que necesites resolver en casa sin tener que buscar un fontanero distinto para cada cosa.',
+      'Instalo, reparo y sustituyo termos eléctricos y calentadores de todas las marcas y capacidades. Antes de recomendar un equipo valoro el espacio disponible, la instalación existente y el consumo real de agua caliente de tu casa, para que no pagues ni más ni menos de lo que necesitas. La instalación incluye conexiones, purgado y prueba de funcionamiento.',
+  },
+  {
+    slug: 'atascos-desagues',
+    title: 'Desatascos y desagües',
+    description:
+      'Soluciono atascos en fregaderos, lavabos, platos de ducha y bajantes de la vivienda, y reviso los desagües para que el problema no se repita a las pocas semanas. Si el atasco esconde un problema mayor en la instalación, te lo explico con claridad y te propongo la solución más razonable antes de tocar nada.',
   },
 ];

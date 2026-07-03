@@ -4,8 +4,8 @@ import MapEmbed from '../components/MapEmbed.astro';
 import { business } from '../data/business';
 ---
 <BaseLayout
-  title="Contacto | Fontanero Leonardo Ruiz en San Luis, Casco Antiguo, Sevilla"
-  description="Contacta con Leonardo Ruiz, fontanero en Sevilla especializado en termos eléctricos. Teléfono, horario, zona de servicio y formulario de contacto."
+  title="Contacto | Fontanero Diego Mora en Sevilla"
+  description="Contacta con Diego Mora, fontanero en Sevilla especializado en instalaciones y reparaciones. Teléfono, horario, zona de servicio y formulario de contacto."
   path="/contacto"
 >
   <section class="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2">
@@ -22,10 +22,6 @@ import { business } from '../data/business';
           <dd><a href={business.telephoneHref} class="text-ambar hover:underline">{business.telephone}</a></dd>
         </div>
         <div>
-          <dt class="font-heading font-semibold text-petroleo">Dirección</dt>
-          <dd>{business.address.streetAddress}, {business.address.postalCode} {business.address.addressLocality}</dd>
-        </div>
-        <div>
           <dt class="font-heading font-semibold text-petroleo">Horario</dt>
           <dd>
             <ul class="space-y-1">
@@ -37,7 +33,7 @@ import { business } from '../data/business';
         </div>
         <div>
           <dt class="font-heading font-semibold text-petroleo">Zona de servicio</dt>
-          <dd>Sevilla capital y alrededores</dd>
+          <dd>{business.areaServed}</dd>
         </div>
       </dl>
 

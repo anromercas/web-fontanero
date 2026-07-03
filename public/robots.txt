@@ -3,4 +3,4 @@ Allow: /
 
 # TODO pendiente: sustituir por el dominio real en cuanto el cliente
 # conecte el repo a Netlify (ver CLAUDE.md > Pendiente).
-Sitemap: https://fontanero-leonardo-ruiz-sevilla.netlify.app/sitemap-index.xml
+Sitemap: https://fontanero-diego-mora-sevilla.netlify.app/sitemap-index.xml

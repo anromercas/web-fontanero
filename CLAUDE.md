@@ -1,16 +1,22 @@
-# CLAUDE.md — Fontanero Termos Eléctricos Leonardo Ruiz
+# CLAUDE.md — Inst. Fontaneria Diego Mora
+
+> Nota: este proyecto se creó originalmente para "Fontanero Termos Eléctricos
+> Leonardo Ruiz" (cliente descartado, versión conservada en el historial de git)
+> y se reutilizó en julio de 2026 para Diego Mora.
 
 ## Proyecto
 Web de presentación en Astro + Tailwind para un fontanero autónomo en Sevilla,
-especializado en termos eléctricos. Objetivo: captar clientes locales vía SEO
-y llamada directa. Sin backend, sin CMS, despliegue estático en Netlify.
+especializado en instalaciones y reparaciones de fontanería. Objetivo: captar
+clientes locales vía SEO y llamada directa. Sin backend, sin CMS, despliegue
+estático en Netlify.
 
 ## Datos de negocio (NAP — no modificar sin confirmación del cliente)
-- Nombre: Fontanero Termos Eléctricos Leonardo Ruiz
-- Teléfono: 651 91 25 07
-- Dirección: San Luis, Casco Antiguo, 41003 Sevilla
-- Horario: L-J 9:00-20:00, V 9:00-14:00, S-D cerrado
-- Valoración Google: 5,0 / 45 reseñas
+- Nombre: Inst. Fontaneria Diego Mora (nombre exacto de la ficha de Google Maps)
+- Teléfono: 685 24 96 08
+- Dirección: sin dirección pública (negocio de área de servicio en Google Maps)
+- Horario: L-V 8:00-15:00, S-D cerrado
+- Valoración Google: 5,0 / 30 reseñas
+- Ficha de Google Maps: https://maps.app.goo.gl/jmG5b1vB3vvroDNz5
 
 Todos estos datos viven en `/src/data/business.ts` como fuente única de verdad;
 `SEOHead`, `Header`, `Footer` y el JSON-LD los leen de ahí. No dupliques estos
@@ -30,15 +36,21 @@ valores directamente en componentes o páginas.
   al copy correspondiente.
 
 ## Pendiente / a confirmar con el cliente
+- Localidad base / zona de trabajo exacta (la ficha de Google no muestra
+  dirección; de momento se usa "Sevilla y provincia" en `areaServed` y copy).
 - Rango de precios (no disponible actualmente, se usa `priceRange: "$$"` genérico).
 - Redes sociales (no disponibles actualmente).
-- NIF/CIF del titular para el Aviso Legal (`src/pages/aviso-legal.astro`),
-  actualmente marcado como "pendiente de facilitar".
+- NIF/CIF y domicilio del titular para el Aviso Legal
+  (`src/pages/aviso-legal.astro`), actualmente marcados como "pendientes".
 - Dominio real de Netlify o dominio propio: actualizar `site` en
   `astro.config.mjs` y la línea `Sitemap:` de `public/robots.txt` en cuanto
-  se conecte el repo a Netlify y se conozca la URL final.
-- Fotos adicionales más allá de la categoría "cuarto de baño" (actualmente se
-  usan fotos de stock libres de derechos de Unsplash/Pexels).
+  se conecte el repo a Netlify y se conozca la URL final (placeholder actual:
+  `fontanero-diego-mora-sevilla.netlify.app`).
+- Fotos propias del cliente (se mantienen fotos de stock libres de derechos de
+  Unsplash/Pexels del proyecto original; los nombres de archivo aún hacen
+  referencia a termos, p. ej. `hero-instalacion-termo.jpg`).
+- La ficha de Google Maps tiene fotos en la categoría "Tubería" y "Del
+  propietario" que podrían solicitarse para usar en la web.
 
 ## Development
 

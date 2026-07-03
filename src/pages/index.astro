@@ -9,19 +9,19 @@ import { serviceIcons } from '../data/serviceIcons';
 import heroImage from '../assets/images/hero-instalacion-termo.jpg';
 
 const featuredServices = services.filter((s) =>
-  ['instalacion-termos', 'sustitucion-urgente', 'reparacion-fugas'].includes(s.slug)
+  ['instalaciones-fontaneria', 'reparaciones-urgentes', 'reparacion-fugas'].includes(s.slug)
 );
 ---
 <BaseLayout
-  title="Fontanero en Sevilla especialista en termos eléctricos | Leonardo Ruiz"
-  description="Fontanero en Sevilla especializado en instalación y reparación de termos eléctricos. Respuesta rápida en Casco Antiguo y toda Sevilla. 5,0★ en 45 reseñas de Google."
+  title="Fontanero en Sevilla: instalaciones y reparaciones | Diego Mora"
+  description="Fontanero en Sevilla especializado en instalaciones y reparaciones de fontanería. Diagnóstico rápido y trato directo en Sevilla y provincia. 5,0★ en 30 reseñas de Google."
   path="/"
 >
   <Hero
-    title="Fontanero en Sevilla especialista en termos eléctricos"
-    subtitle="Instalación y reparación urgente de termos eléctricos en Casco Antiguo y toda Sevilla. Leonardo Ruiz responde rápido, sin sorpresas y con trato cercano — 5,0★ en 45 reseñas de Google."
+    title="Fontanero en Sevilla: instalaciones y reparaciones"
+    subtitle="Instalaciones de fontanería y reparación de averías en Sevilla y provincia. Diego Mora responde rápido, te adelanta el diagnóstico y trabaja sin sorpresas — 5,0★ en 30 reseñas de Google."
     image={heroImage}
-    imageAlt="Instalación de termo eléctrico en un cuarto de baño en Sevilla"
+    imageAlt="Fontanero profesional trabajando en la instalación de una vivienda en Sevilla"
   />
 
   <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
@@ -76,7 +76,7 @@ const featuredServices = services.filter((s) =>
       <div>
         <h2 class="font-heading text-2xl font-bold sm:text-3xl">Zona de cobertura y horario</h2>
         <p class="mt-4 text-white/90">
-          Atiendo Sevilla capital y alrededores, con especial presencia en el Casco Antiguo. Disponible en:
+          Atiendo a domicilio en Sevilla y provincia. Disponible en:
         </p>
         <ul class="mt-4 space-y-1 text-white/90">
           {business.openingHoursDisplay.map((item) => (

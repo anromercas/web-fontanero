@@ -7,11 +7,11 @@ interface Props {
 
 const { className = '' } = Astro.props;
 
-const addressQuery = encodeURIComponent(
-  `${business.address.streetAddress}, ${business.address.postalCode} ${business.address.addressLocality}`
-);
-const mapSrc = `https://www.google.com/maps?q=${addressQuery}&output=embed`;
-const mapTitle = `Ubicación de ${business.name} en ${business.address.streetAddress}, ${business.address.addressLocality}`;
+// Negocio de área de servicio sin dirección pública: el mapa se centra en la
+// ficha del negocio buscándola por su nombre exacto en Google Maps.
+const mapQuery = encodeURIComponent(`${business.name}, ${business.address.addressLocality}`);
+const mapSrc = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+const mapTitle = `Ficha de ${business.name} en Google Maps`;
 ---
 <iframe
   src={mapSrc}

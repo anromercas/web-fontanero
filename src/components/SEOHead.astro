@@ -21,11 +21,10 @@ const jsonLd = {
   telephone: business.telephoneE164,
   priceRange: business.priceRange,
   areaServed: business.areaServed,
+  // Negocio de área de servicio: sin dirección de calle pública en Google Maps.
   address: {
     '@type': 'PostalAddress',
-    streetAddress: business.address.streetAddress,
     addressLocality: business.address.addressLocality,
-    postalCode: business.address.postalCode,
     addressRegion: business.address.addressRegion,
     addressCountry: business.address.addressCountry,
   },

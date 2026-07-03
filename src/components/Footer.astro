@@ -8,7 +8,7 @@ const year = new Date().getFullYear();
     <div>
       <h2 class="font-heading text-lg font-semibold text-white">{business.name}</h2>
       <p class="mt-2 text-sm">
-        {business.address.streetAddress}, {business.address.postalCode} {business.address.addressLocality}
+        Servicio a domicilio en {business.areaServed}
       </p>
       <a href={business.telephoneHref} class="mt-2 inline-block text-ambar hover:underline">
         {business.telephone}
